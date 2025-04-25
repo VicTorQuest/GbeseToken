@@ -1,0 +1,30 @@
+{
+  "name": "gbese-token",
+  "version": "1.0.0",
+  "description": "An ERC-20 token reward from settling debt in the gbese web app",
+  "main": "scripts/run.js",
+  "scripts": {
+    "test": "npx hardhart run scripts/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VicTorQuest/GbeseToken.git"
+  },
+  "keywords": [
+    "gbese",
+    "erc20",
+    "token"
+  ],
+  "author": "Victor okolie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VicTorQuest/GbeseToken/issues"
+  },
+  "homepage": "https://github.com/VicTorQuest/GbeseToken#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.3.0",
+    "dotenv": "^16.5.0",
+    "hardhat": "^2.23.0"
+  }
+}
