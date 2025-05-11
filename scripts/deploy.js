@@ -1,9 +1,18 @@
 const main = async ()=> {
-    const gbeseTokenContractFactory = await hre.ethers.getContractFactory("GbeseToken");
-    const gbeseTokenContract = await gbeseTokenContractFactory.deploy(1000000);
-    await gbeseTokenContract.waitForDeployment()
+    const [deployer] = await hre.ethers.getSigners();
+    const accountBalance = await hre.ethers.provider.getBalance(deployer);
+    
+    console.log("Deploying contracts with account: ", deployer.address);
+    console.log("Account Balance ", accountBalance.toString());
 
+    const gbeseTokenContractFactory = await hre.ethers.getContractFactory("GbeseToken");
+    const KYC_CONTRACT_ADDRESS = '0x16B3574b38AE3653e6768b75344AE2E49D64ED0b'
+    const gbeseTokenContract = await gbeseTokenContractFactory.deploy(KYC_CONTRACT_ADDRESS);
+
+    await gbeseTokenContract.waitForDeployment();
+    console.log("Contract deployed to:", gbeseTokenContract.target);
 }
+
 
 
 const runMain = async ()=> {
@@ -11,10 +20,9 @@ const runMain = async ()=> {
         await main();
         process.exit(0);
     } catch (error) {
-        console.log(error);
+        console.log(error)
         process.exit(1);
     }
 }
 
-
-runMain()
+runMain();
